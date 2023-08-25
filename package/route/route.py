@@ -12,7 +12,7 @@ def init_route(app):
     @app.route('/updateWebFiles')
     def update_web_files():
         msg = update_files()
-        if len(msg) == 0:
+        if msg is not None:
             return jsonify({"code": 200, "msg": "更新成功"})
         else:
             return jsonify({"code": 0, "msg": msg})
